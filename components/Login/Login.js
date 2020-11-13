@@ -3,8 +3,6 @@ import styles from "./Login.module.scss";
 import { isAuthState } from "../../pages/index";
 import { atom, useSetRecoilState } from "recoil";
 import axios from "axios";
-// import fetch from "isomorphic-unfetch";
-// import fetch from "isomorphic-fetch";
 
 export const phoneState = atom({
   key: "phone",
