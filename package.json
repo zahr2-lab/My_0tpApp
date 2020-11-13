@@ -1,0 +1,36 @@
+{
+  "name": "nextjs",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "node server.js",
+    "build": "next build",
+    "start": "node server.js",
+    "post-update": "yarn upgrade --latest"
+  },
+  "dependencies": {
+    "@apollo/client": "3.2.5",
+    "@zeit/next-sass": "1.0.1",
+    "axios": "0.21.0",
+    "body-parser": "1.19.0",
+    "express": "4.17.1",
+    "form-data": "3.0.0",
+    "ghasedak": "0.0.2",
+    "graphql": "15.4.0",
+    "graphql-yoga": "1.18.3",
+    "isomorphic-fetch": "3.0.0",
+    "isomorphic-unfetch": "3.1.0",
+    "mongodb": "3.6.3",
+    "mongoose": "5.10.13",
+    "next": "latest",
+    "node-sass": "5.0.0",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "recoil": "0.1.2",
+    "sass": "1.28.0"
+  },
+  "license": "MIT",
+  "keywords": [
+    "next"
+  ],
+  "description": "A \"Hello World\" application with multiple pages that shows how Next.js routing works."
+}
