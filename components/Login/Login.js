@@ -22,7 +22,7 @@ export default function Login() {
     if (waiting) {
       axios
         .post(
-          "https://6uo0p.sse.codesandbox.io/Login",
+          "https://upkqi.sse.codesandbox.io/Login",
           { phoneNumber, oTP },
           { "content-type": "application/json" }
         )
@@ -33,7 +33,7 @@ export default function Login() {
     } else {
       axios
         .post(
-          "https://6uo0p.sse.codesandbox.io/otp",
+          "https://upkqi.sse.codesandbox.io/otp",
           { phoneNumber },
           { "content-type": "application/json" }
         )
