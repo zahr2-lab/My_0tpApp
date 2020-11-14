@@ -83,7 +83,7 @@ app
         await ghasedak.send({
           message: `کد احراز هویت شما ${param1} میباشد. (فروشگاه بیروت)`,
           receptor: body.phoneNumber,
-          linenumber: "10008566"
+          linenumber: process.env.LINENUMBER
         });
 
         return res.end("done");
