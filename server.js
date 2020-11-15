@@ -1,9 +1,10 @@
-const Ghasedak = require("ghasedak");
 const express = require("express");
 const next = require("next");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const OTPmodel = require("./models/otp");
+const axios = require("axios").default;
+const qs = require("qs");
 
 mongoose.connect(
   `mongodb+srv://abdallah:${process.env.MONGOdB_PASS}@mydb.pn4y4.mongodb.net/Chat_test?retryWrites=true&w=majority/otps`,
@@ -16,8 +17,6 @@ mongoose.connect(
     console.log("connected");
   }
 );
-
-const ghasedak = new Ghasedak(process.env.GHASEDAK_API);
 
 const dev = process.env.NODE_ENV !== "production";
 const app = next({ dev });
@@ -80,11 +79,31 @@ app
           });
           createdOTP.save().catch((err) => console.log(err));
         }
-        await ghasedak.send({
-          message: `کد احراز هویت شما ${param1} میباشد. (فروشگاه بیروت)`,
-          receptor: body.phoneNumber,
-          linenumber: process.env.LINENUMBER
-        });
+
+        var options = {
+          method: "POST",
+          url: "https://api.ghasedak.io/v2/verification/send/simple",
+          headers: {
+            "content-type": "application/x-www-form-urlencoded",
+            apikey: process.env.GHASEDAK_API
+          },
+          data: qs.stringify({
+            type: "1",
+            param1: param1,
+            receptor: body.phoneNumber,
+            template: "test",
+            lineNumber: process.env.LINENUMBER
+          })
+        };
+
+        axios
+          .request(options)
+          .then((response) => {
+            console.log(response.data.result.code);
+          })
+          .catch((error) => {
+            console.error(error);
+          });
 
         return res.end("done");
       } else {

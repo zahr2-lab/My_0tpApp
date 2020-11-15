@@ -1,54 +1,8 @@
 .container{
-
-
   display: flex;
-  
   flex-direction: column;
-  
   justify-content: center;
-  
   align-items: center;
-  
   height: 80vh;
-  
   }
-  
-  .phone{
-  
-  border:1px solid lightgrey;
-  
-  border-radius: .5rem;
-  
-  font-size: 1.4rem;
-  
-  padding: .5rem;
-  
-  margin: .5rem auto;
-  
-  }
-  
-  .phone:focus{
-  
-  outline: none; 
-  
-  border: 1px solid tomato; 
-  
-  }
-  
-  .btn{
-  
-  font-size: 1.3rem;
-  
-  border: none;
-  
-  background-color: tomato;
-  
-  color: white;
-  
-  padding:.5rem;
-  
-  border-radius: .2rem;
-  
-  }
-  
   

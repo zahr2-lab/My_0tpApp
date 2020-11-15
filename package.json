@@ -19,6 +19,7 @@
     "mongoose": "5.10.13",
     "next": "latest",
     "node-sass": "5.0.0",
+    "qs": "6.9.4",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "recoil": "0.1.2",

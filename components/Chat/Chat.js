@@ -1,12 +1,12 @@
 import { useState, useRef } from "react";
 import styles from "./Chat.module.scss";
 import { useRecoilValue } from "recoil";
-import { phoneState } from "../Login/Login";
+import { userNameState } from "../Name/Name";
 
 export default function Chat() {
   const [messages, setMessages] = useState([]);
   const [newMessage, setNewMessage] = useState("");
-  const phone = useRecoilValue(phoneState);
+  const userName = useRecoilValue(userNameState);
   const chatRef = useRef();
 
   const handleSend = async () => {
@@ -30,7 +30,7 @@ export default function Chat() {
         {messages.map((obj) => {
           return (
             <div className={styles.chatbox_messagebox}>
-              <div className={styles.chatbox_number}>{phone}</div>
+              <div className={styles.chatbox_number}>{userName}</div>
               <div className={styles.chatbox_message}>{obj.message}</div>
               <div className={styles.chatbox_time}>{obj.time}</div>
             </div>
@@ -49,7 +49,10 @@ export default function Chat() {
           }
         />
 
-        <button className={styles.button} onClick={handleSend}>
+        <button
+          className={styles.button}
+          onClick={newMessage !== "" && handleSend}
+        >
           send
         </button>
       </div>
